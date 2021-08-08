@@ -1,0 +1,36 @@
+# Things you might want to change
+
+# options(papersize="a4")
+# options(editor="notepad")
+# options(pager="internal")
+
+# set the default help type
+# options(help_type="text")
+  options(help_type="html")
+
+# set a site library
+# .Library.site <- file.path(chartr("\\", "/", R.home()), "site-library")
+
+# set a CRAN mirror
+# local({r <- getOption("repos")
+#       r["CRAN"] <- "http://my.local.cran"
+#       options(repos=r)})
+
+# Give a fortune cookie, but only to interactive sessions
+# (This would need the fortunes package to be installed.)
+#  if (interactive()) 
+#    fortunes::fortune()
+
+if(!'installr' %in% rownames(utils::installed.packages())){
+    utils::install.packages("installr")
+}
+local({ 
+  utils::update.packages(ask = FALSE, type = 'binary', repos = 'https://cran.rstudio.com/')
+  
+  invisible(installr::updateR(browse_news = TRUE, install_R = TRUE,
+                copy_packages = FALSE, copy_site_files = TRUE, 
+                keep_old_packages = FALSE, update_packages = FALSE,
+                start_new_R = TRUE, quit_R = TRUE, 
+                print_R_versions = FALSE))
+                
+})

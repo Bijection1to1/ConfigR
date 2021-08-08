@@ -1,0 +1,2 @@
+# R_LIBS_USER = C:/Example/Path
+# PATH="${RTOOLS40_HOME}\usr\bin;${PATH}"
